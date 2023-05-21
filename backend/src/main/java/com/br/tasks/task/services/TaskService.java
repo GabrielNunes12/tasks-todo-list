@@ -1,8 +1,10 @@
 package com.br.tasks.task.services;
 
+import com.br.tasks.task.enums.TaskEnum;
 import com.br.tasks.task.models.Task;
 import com.br.tasks.task.repositories.TaskRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
@@ -21,6 +23,7 @@ public class TaskService {
     newTask.setDescription(task.getDescription());
     newTask.setTitle(task.getTitle());
     newTask.setFinished(task.isFinished());
+    newTask.setTaskEnum(task.isFinished() ? TaskEnum.CONCLUIDO : TaskEnum.EM_PROGRESSO);
     return taskRepository.save(newTask);
   }
 
@@ -29,6 +32,7 @@ public class TaskService {
     oldTask.setTitle(newTask.getTitle());
     oldTask.setDescription(newTask.getDescription());
     oldTask.setFinished(newTask.isFinished());
+    oldTask.setTaskEnum(newTask.isFinished() ? TaskEnum.CONCLUIDO : TaskEnum.EM_PROGRESSO);
     taskRepository.save(oldTask);
     return oldTask;
   }
