@@ -16,6 +16,9 @@ public class Task {
   private boolean isFinished;
   @Enumerated(EnumType.STRING)
   private TaskEnum taskEnum;
+  @ManyToOne
+  @JoinColumn(name = "user_id")
+  private User user;
 
   public Task() {
   }
