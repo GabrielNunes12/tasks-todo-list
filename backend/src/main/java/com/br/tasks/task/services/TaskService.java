@@ -4,7 +4,6 @@ import com.br.tasks.task.enums.TaskEnum;
 import com.br.tasks.task.models.Task;
 import com.br.tasks.task.repositories.TaskRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
